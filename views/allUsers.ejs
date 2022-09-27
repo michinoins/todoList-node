@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>user</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div>全てのユーザーを表示する</div>
+    <ol>
+      <% for(var i=0; i < users.length; i++) { %>
+      <li><%= users[i].firstName %> <%= users[i].lastName %></li>
+      <% } %>
+    </ol>
+  </body>
+</html>
