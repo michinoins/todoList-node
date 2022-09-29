@@ -1,23 +1,9 @@
 {
   "development": {
-    "username": "ichinomikiya",
-    "password": null,
+    "username": "postgres",
+    "password": "Mikiya1121",
     "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "postgresql"
-  },
-  "test": {
-    "username": "ichinomikiya",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "postgresql"
-  },
-  "production": {
-    "username": "ichinomikiya",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "host": "104.198.129.214",
     "dialect": "postgresql"
   }
 }
