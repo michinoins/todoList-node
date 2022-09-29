@@ -6,6 +6,9 @@ var todoController = require('../controllers/todo');
 
 router.get('/', todoController.showAllTodos);
 router.post('/', todoController.addTodo);
-router.put('/', todoController.updateTodo);
+router.put('/:id', todoController.updateTodo);
+router.delete('/:id', todoController.deleteTodo);
+// deleteAllはどうしよう・・・ router.delete('/', todoController.deleteTodo);
+router.get('/search/:targetTodo', todoController.searchTodo);
 
 module.exports = router;
