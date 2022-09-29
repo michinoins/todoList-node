@@ -1,3 +1,2 @@
 runtime: nodejs12
-
-service: backend_node
+service: backend-node
