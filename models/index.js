@@ -20,19 +20,30 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   console.log('no use_env');
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    {
-      dialect: 'postgres',
-      host: '/cloudsql/semiotic-axis-363920:us-central1:todoappinstance',
-      dialectOptions: {
-        socketPath: 'cloudsql/semiotic-axis-363920:us-central1:todoappinstance',
+  if (env === 'development') {
+    sequelize = new Sequelize(
+      config.database,
+      config.username,
+      config.password,
+      config
+    );
+  } else if (env == 'production') {
+    sequelize = new Sequelize(
+      config.database,
+      config.username,
+      config.password,
+      // set cloudsql
+      {
+        dialect: 'postgres',
+        host: '/cloudsql/semiotic-axis-363920:us-central1:todoappinstance',
+        dialectOptions: {
+          socketPath:
+            'cloudsql/semiotic-axis-363920:us-central1:todoappinstance',
+        },
       },
-    },
-    config
-  );
+      config
+    );
+  }
 }
 
 fs.readdirSync(__dirname)

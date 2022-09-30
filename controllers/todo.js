@@ -30,12 +30,11 @@ var todoController = {
   addTodo: function (req, res, next) {
     const currentTime = new Date().toISOString();
     const name = req.body.name;
-
+    console.log('before create');
     dbModels.Todo.create({
       name: name,
       createdAt: currentTime,
       updatedAt: currentTime,
-      currentTime,
     }).then(() => {
       console.log('todo [' + name + ' ] is created');
       res.sendStatus(200);

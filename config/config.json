@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "Mikiya1121",
+    "username": "ichinomikiya",
+    "password": null,
     "database": "database_development",
-    "host": "104.198.129.214",
+    "host": "127.0.0.1",
     "dialect": "postgresql"
   },
   "production": {
