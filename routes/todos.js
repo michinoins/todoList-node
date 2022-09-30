@@ -8,7 +8,7 @@ router.get('/', todoController.showAllTodos);
 router.post('/', todoController.addTodo);
 router.put('/:id', todoController.updateTodo);
 router.delete('/:id', todoController.deleteTodo);
-// deleteAllはどうしよう・・・ router.delete('/', todoController.deleteTodo);
-router.get('/search/:targetTodo', todoController.searchTodo);
+router.delete('/', todoController.deleteAllTodo);
+router.get('/search', todoController.searchTodo);
 
 module.exports = router;

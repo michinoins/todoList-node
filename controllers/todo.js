@@ -52,6 +52,15 @@ var todoController = {
       res.sendStatus(200);
     });
   },
+  deleteAllTodo: function (req, res, next) {
+    const id = req.params['id'];
+    dbModels.Todo.destroy({
+      where: {},
+    }).then(() => {
+      console.log('todo all deleted');
+      res.sendStatus(200);
+    });
+  },
 
   updateTodo: function (req, res, next) {
     const id = req.params.id;
@@ -71,7 +80,7 @@ var todoController = {
     });
   },
   searchTodo: function (req, res, next) {
-    const targetTodo = req.params.targetTodo;
+    const targetTodo = req.query.targetTodo;
     console.log('target is ' + targetTodo);
 
     dbModels.Todo.findAll({
