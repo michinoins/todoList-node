@@ -16,12 +16,21 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
+  console.log('use_env');
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
+  console.log('no use_env');
   sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
+    {
+      dialect: 'postgres',
+      host: '/cloudsql/semiotic-axis-363920:us-central1:todoappinstance',
+      dialectOptions: {
+        socketPath: 'cloudsql/semiotic-axis-363920:us-central1:todoappinstance',
+      },
+    },
     config
   );
 }
