@@ -1,2 +1,5 @@
 runtime: nodejs12
 service: backend-node
+
+beta_settings:
+  cloud_sql_instances: semiotic-axis-363920:us-central1:todoappinstance
