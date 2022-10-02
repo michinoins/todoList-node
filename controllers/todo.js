@@ -37,7 +37,6 @@ var todoController = {
   addTodo: function (req, res, next) {
     const currentTime = new Date().toISOString();
     const todo = req.body.todo;
-    console.log('before currentUser');
     console.log('req.session.login is: ' + req.session.login);
 
     const currentUser = req.session.login;
@@ -123,7 +122,7 @@ var todoController = {
     sequelize
       .query(
         `select "Todos".* from "Todos" inner join "User_Todos" on "Todos"."id" = "User_Todos"."todoId" 
-      where "User_Todos"."userId" = 4 and "Todos"."name" like '%${targetTodo}%'`
+      where "User_Todos"."userId" = ${userId} and "Todos"."name" like '%${targetTodo}%'`
       )
       .then((result) => {
         if (!result) {
