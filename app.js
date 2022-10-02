@@ -26,6 +26,7 @@ const ses_opt = {
   saveUninitialized: false,
   cookie: {
     sameSite: 'none',
+    secure: true,
     maxAge: new Date(Date.now() + 60 * 60 * 1000),
   },
 };
