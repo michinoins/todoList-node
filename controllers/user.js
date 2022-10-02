@@ -31,7 +31,7 @@ var userController = {
       where: { name: name, password: password },
     }).then((user) => {
       console.log('about login ' + JSON.stringify(user));
-      if (!user) {
+      if (user) {
         console.log('login succeed !');
         console.log('userId: ' + user[0].id);
         req.session.login = user[0].id;
