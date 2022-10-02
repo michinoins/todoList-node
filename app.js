@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
   frontOrigin =
     'https://frontend-react-dot-semiotic-axis-363920.de.r.appspot.com';
 } else {
-  frontOrigin = 'http://localhost:3000';
+  frontOrigin = 'http://localhost:3001';
 }
 
 console.log('front_origin ' + frontOrigin);
@@ -48,6 +48,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(ses_opt));
+app.enable('trust proxy');
 
 // common processing
 app.use((req, res, next) => {
