@@ -20,10 +20,11 @@ const ses_opt = {
   expires: new Date(Date.now() + 60 * 60 * 1000),
 };
 
+// cors setting
 var frontOrigin = '';
 if (process.env.NODE_ENV === 'production') {
   frontOrigin =
-    'https://backend-node-dot-semiotic-axis-363920.de.r.appspot.com';
+    'https://frontend-react-dot-semiotic-axis-363920.de.r.appspot.com';
 } else {
   frontOrigin = 'http://localhost:3000';
 }
