@@ -18,6 +18,9 @@ const ses_opt = {
   resave: false,
   saveUninitialized: false,
   expires: new Date(Date.now() + 60 * 60 * 1000),
+  httpOnly: true,
+  secure: true,
+  sameSite: 'none',
 };
 
 // cors setting
