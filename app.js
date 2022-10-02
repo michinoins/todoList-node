@@ -23,11 +23,11 @@ const ses_opt = {
   }),
   secret: 'my-secret',
   resave: false,
-  saveUninitialized: true,
-  expires: new Date(Date.now() + 60 * 60 * 1000),
-  rolling: true,
-
-  sameSite: 'none',
+  saveUninitialized: false,
+  cookie: {
+    sameSite: 'none',
+    maxAge: new Date(Date.now() + 60 * 60 * 1000),
+  },
 };
 
 // cors setting
