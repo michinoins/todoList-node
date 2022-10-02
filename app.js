@@ -26,9 +26,6 @@ const ses_opt = {
   resave: false,
   saveUninitialized: true,
   expires: new Date(Date.now() + 60 * 60 * 1000),
-  httpOnly: true,
-  secure: true,
-  sameSite: 'none',
 };
 
 // cors setting
@@ -58,8 +55,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session(ses_opt));
 app.enable('trust proxy');
+app.use(session(ses_opt));
 
 // common processing
 app.use((req, res, next) => {
