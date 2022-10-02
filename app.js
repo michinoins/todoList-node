@@ -15,9 +15,9 @@ var session = require('express-session');
 
 app.use(
   cors({
-    origin: 'http://localhost:3001', //アクセス許可するオリジン
-    credentials: true, //レスポンスヘッダーにAccess-Control-Allow-Credentials追加
-    optionsSuccessStatus: 200, //レスポンスstatusを200に設定
+    origin: 'http://localhost:3001',
+    credentials: true,
+    optionsSuccessStatus: 200,
   })
 );
 // view engine setup
@@ -25,13 +25,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 const ses_opt = {
-  secret: 'my secret', //本番環境ではわかりにくいキーを設定すること
-  resave: false, //trueにするとsessionに変更がなくても強制的に保存　通常false
-  saveUninitialized: false, //trueにすると初期はされていなくても保存 通常false
-  expires: new Date(Date.now() + 60 * 60 * 1000), //
-  cookie: {
-    httpOnly: false,
-  },
+  secret: 'my secret',
+  resave: false,
+  saveUninitialized: false,
+  expires: new Date(Date.now() + 60 * 60 * 1000),
 };
 
 app.use(logger('dev'));

@@ -24,7 +24,7 @@ var todoController = {
           return da - db;
         });
         if (!todos) {
-          console.log('ユーザーデータを取得できませんでした');
+          console.log('Fail to load users');
           res.send('Error');
         } else {
           console.log('response is' + todos);
@@ -127,7 +127,7 @@ var todoController = {
       )
       .then((result) => {
         if (!result) {
-          console.log('ユーザーデータを取得できませんでした');
+          console.log('Fail to load users');
           res.send('Error');
         } else {
           const todos = result[0];

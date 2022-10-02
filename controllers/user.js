@@ -5,11 +5,10 @@ var dbModels = require('../models/');
 const bcrypt = require('bcrypt');
 
 var userController = {
-  //新規アカウント作成
   createUser: function (req, res) {
     let password = req.body.password;
     console.log(password);
-    // let hashedPassword = bcrypt.hash(password, 10);
+    // later implement hashedPassword = bcrypt.hash(password, 10);
     const hashedPassword = password;
     const name = req.body.username;
     const currentTime = new Date().toISOString();
@@ -39,7 +38,6 @@ var userController = {
         console.log('req.session.login is: ' + req.session.login);
         res.sendStatus(200);
       } else {
-        console.log('user not exist :(');
         res.sendStatus(400);
       }
     });
@@ -51,15 +49,14 @@ var userController = {
   },
 
   showUserById: function (req, res, next) {
-    var userId = req.params.userId; // ユーザーIDを取得
+    var userId = req.params.userId;
     if (!userId) {
-      console.log('ユーザーIDを取得できませんでした');
+      console.log('Fail to load User Id');
       res.send('Error');
     } else {
-      // Sequelizeのモデルを使ってデータを取得する
       dbModels.User.findByPk(userId).then((user) => {
         if (!user) {
-          console.log('ユーザーデータを取得できませんでした');
+          console.log('Fail to load users');
           res.send('Error');
         } else {
           res.render('oneUser', { user: user });
@@ -69,10 +66,9 @@ var userController = {
   },
 
   sendJson: function (req, res, next) {
-    // Sequelizeのモデルを使ってデータを取得する
     dbModels.User.findAll().then((users) => {
       if (!users) {
-        console.log('ユーザーデータを取得できませんでした');
+        console.log('Fail to load users');
         res.send('Error');
       } else {
         res.json(users);
