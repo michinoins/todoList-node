@@ -8,7 +8,7 @@
   },
   "production": {
     "username": "postgres",
-    "password": "Mikiya1121", // todo secret
+    "password": "Mikiya1121",
     "database": "database_development",
     "host": "104.198.129.214",
     "dialect": "postgresql"
