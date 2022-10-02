@@ -12,11 +12,19 @@ var todosRouter = require('./routes/todos');
 var app = express();
 var cors = require('cors');
 var session = require('express-session');
+const { Firestore } = require('@google-cloud/firestore');
+
+const { FirestoreStore } = require('@google-cloud/connect-firestore');
 
 const ses_opt = {
-  secret: 'my secret',
+  store: new FirestoreStore({
+    dataset: new Firestore(),
+    kind: 'express-sessions',
+    projectId: 'semiotic-axis-363920',
+  }),
+  secret: 'my-secret',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   expires: new Date(Date.now() + 60 * 60 * 1000),
   httpOnly: true,
   secure: true,
