@@ -25,6 +25,8 @@ const ses_opt = {
   resave: false,
   saveUninitialized: true,
   expires: new Date(Date.now() + 60 * 60 * 1000),
+  rolling: true,
+
   sameSite: 'none',
 };
 
