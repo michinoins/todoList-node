@@ -31,6 +31,7 @@ var userController = {
     dbModels.User.findAll({
       where: { name: name, password: password },
     }).then((user) => {
+      console.log('about login ' + JSON.stringify(user));
       if (user != undefined) {
         console.log('login succeed !');
         console.log('userId: ' + user[0].id);
@@ -38,6 +39,7 @@ var userController = {
         console.log('req.session.login is: ' + req.session.login);
         res.sendStatus(200);
       } else {
+        res.end(JSON.stringify({ errorCode: 400 }));
         res.sendStatus(400);
       }
     });

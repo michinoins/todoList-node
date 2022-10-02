@@ -19,7 +19,7 @@ if (config.use_env_variable) {
   console.log('use_env');
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  console.log('no use_env');
+  console.log('currnetEnv: ' + env);
   if (env === 'development') {
     sequelize = new Sequelize(
       config.database,
