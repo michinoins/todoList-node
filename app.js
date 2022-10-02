@@ -13,7 +13,6 @@ var app = express();
 var cors = require('cors');
 var session = require('express-session');
 const { Firestore } = require('@google-cloud/firestore');
-
 const { FirestoreStore } = require('@google-cloud/connect-firestore');
 
 const ses_opt = {
@@ -26,6 +25,7 @@ const ses_opt = {
   resave: false,
   saveUninitialized: true,
   expires: new Date(Date.now() + 60 * 60 * 1000),
+  sameSite: 'none',
 };
 
 // cors setting
