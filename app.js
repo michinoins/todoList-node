@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 console.log('front_origin ' + frontOrigin);
 app.use(
   cors({
-    origin: process.env.frontOrigin,
+    origin: frontOrigin,
     credentials: true,
     optionsSuccessStatus: 200,
   })
