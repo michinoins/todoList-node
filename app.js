@@ -20,9 +20,18 @@ const ses_opt = {
   expires: new Date(Date.now() + 60 * 60 * 1000),
 };
 
+var frontOrigin = '';
+if (process.env.NODE_ENV === 'production') {
+  frontOrigin =
+    'https://backend-node-dot-semiotic-axis-363920.de.r.appspot.com';
+} else {
+  frontOrigin = 'http://localhost:3000';
+}
+
+console.log('front_origin ' + frontOrigin);
 app.use(
   cors({
-    origin: process.env.FRONT_ORIGIN,
+    origin: process.env.frontOrigin,
     credentials: true,
     optionsSuccessStatus: 200,
   })
