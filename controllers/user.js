@@ -12,7 +12,6 @@ var userController = {
     const hashedPassword = password;
     const name = req.body.username;
     const currentTime = new Date().toISOString();
-
     dbModels.User.create({
       name: name,
       password: hashedPassword,
@@ -32,7 +31,7 @@ var userController = {
       where: { name: name, password: password },
     }).then((user) => {
       console.log('about login ' + JSON.stringify(user));
-      if (user != undefined) {
+      if (user) {
         console.log('login succeed !');
         console.log('userId: ' + user[0].id);
         req.session.login = user[0].id;
