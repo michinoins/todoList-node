@@ -23,7 +23,7 @@ const ses_opt = {
   }),
   secret: 'my-secret',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     sameSite: 'none',
     secure: true,
