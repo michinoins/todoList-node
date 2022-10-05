@@ -45,6 +45,7 @@ var todoController = {
 
     dbModels.Todo.create({
       name: todo,
+      completed: false,
       createdAt: currentTime,
       updatedAt: currentTime,
     }).then((created) => {
@@ -111,6 +112,23 @@ var todoController = {
       }
     ).then(() => {
       console.log('updatedTodo: ' + updateName);
+      res.sendStatus(200);
+    });
+  },
+  updateToggle: function (req, res, next) {
+    const id = req.params.id;
+    const updateIsComplete = req.body.completed;
+    const currentTime = new Date().toISOString();
+
+    dbModels.Todo.update(
+      { completed: updateIsComplete, updatedAt: currentTime },
+      {
+        where: {
+          id: id,
+        },
+      }
+    ).then(() => {
+      console.log('updatedTodo: ' + updateTodo);
       res.sendStatus(200);
     });
   },
